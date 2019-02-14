@@ -1,0 +1,12 @@
+.App {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filepond-wrap {
+  width: 300px;
+  height: 100px;
+  margin-top: 100px;
+}
