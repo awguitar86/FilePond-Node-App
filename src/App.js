@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="filepond-wrap">
-          <FilePond />
+          <FilePond name={'file'} server="http://localhost:8080/upload"/>
         </div>
       </div>
     );
