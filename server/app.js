@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const port = 8080;
+const Converter = require("csvtojson").Converter;
+const converter = new Converter({});
 
 const app = express()
 
@@ -42,6 +44,20 @@ app.post('/upload', (req, res, next) => {
       })
     }
   )
+  console.log(`${__dirname}/public/files/${fileName}`);
+  converter.fromFile(`${__dirname}/public/files/${fileName}`,function(err,result){
+    // if an error has occured then handle it
+    if(err){
+        console.log("An Error Has Occured");
+        console.log(err);
+    }
+    // create a variable called json and store
+    // the result of the conversion
+    var json = result;
+
+    // log our json to verify it has worked
+    console.log(json);
+  });
 })
 
 // catch 404 and forward to error handler
