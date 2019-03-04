@@ -45,19 +45,11 @@ app.post('/upload', (req, res, next) => {
     }
   )
   console.log(`${__dirname}/public/files/${fileName}`);
-  converter.fromFile(`${__dirname}/public/files/${fileName}`,function(err,result){
-    // if an error has occured then handle it
-    if(err){
-        console.log("An Error Has Occured");
-        console.log(err);
-    }
-    // create a variable called json and store
-    // the result of the conversion
-    var json = result;
+})
 
-    // log our json to verify it has worked
-    console.log(json);
-  });
+app.get('./getFile', (req, res, next) => {
+  const file = `${__dirname}/public/files/Fall2019.csv`;
+  file.then( promise => res.status(200).send(promise)).catch( err => res.status(500).send(err));
 })
 
 // catch 404 and forward to error handler

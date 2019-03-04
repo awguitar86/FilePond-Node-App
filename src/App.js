@@ -11,6 +11,7 @@ class App extends Component {
         <div className="filepond-wrap">
           <FilePond name={'file'} server="http://localhost:8080/upload"/>
         </div>
+        <button>Click</button>
       </div>
     );
   }
